@@ -15,6 +15,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var sliderOne: UISlider!
     @IBOutlet weak var sliderTwo: UISlider!
     
+    @IBOutlet weak var labelRed: UILabel!
+    @IBOutlet weak var labelGreen: UILabel!
+    @IBOutlet weak var labelBlue: UILabel!
+    
     @IBOutlet weak var sliderThree: UISlider!
 
     
@@ -39,14 +43,18 @@ class ViewController: UIViewController {
         sliderThree.minimumValue = 0
         sliderThree.maximumValue = 250
         
-    
-       colorView.backgroundColor = UIColor.init(red: 200, green:100 , blue: 100, alpha: 1)
+        labelRed.text = String(sliderOne.value)
+        labelGreen.text = String(sliderTwo.value)
+        labelBlue.text = String(sliderThree.value)
         
     }
 
     
     
     @IBAction func sliderA() {
+        let sliderValueIntOne  = Int(sliderOne.value)
+        labelRed.text = String(sliderValueIntOne)
+        
         let sliderValue = CGFloat(sliderOne.value)/250
          let sliderValueTwo = CGFloat(sliderTwo.value)
         
@@ -54,6 +62,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sliderAB() {
+         let sliderValueIntTwo  = Int(sliderTwo.value)
+         labelGreen.text = String(sliderValueIntTwo)
         let sliderValue = CGFloat(sliderOne.value)
          let sliderValueTwo = CGFloat(sliderTwo.value)/250
          colorView.backgroundColor = UIColor.init(red: sliderValue, green:sliderValueTwo , blue: 0, alpha: 1)
@@ -61,6 +71,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sliderAC() {
+        let sliderValueIntThree  = Int(sliderThree.value)
+        labelBlue.text = String(sliderValueIntThree)
         let sliderValue = CGFloat(sliderOne.value)
         let sliderValueTwo = CGFloat(sliderTwo.value)/250
         let sliderValueThree = CGFloat(sliderThree.value)/250
